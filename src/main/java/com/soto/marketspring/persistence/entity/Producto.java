@@ -14,7 +14,8 @@ public class Producto {
     @Column(name = "nombre")
     private String nombreProducto;
 
-    @Column(name = "id_categoria")
+    @ManyToOne
+    @JoinColumn(name = "id_categoria",insertable = false,updatable = false)
     private Categoria categoriaId;
 
     @Column(name = "codigo_barras")

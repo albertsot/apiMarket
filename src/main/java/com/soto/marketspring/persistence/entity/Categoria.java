@@ -1,6 +1,7 @@
 package com.soto.marketspring.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -12,4 +13,7 @@ public class Categoria {
     private Integer categoriaId;
     private String  descripcion;
     private Boolean estado;
+
+    @OneToMany(mappedBy = "categoriaId")
+    private List<Producto> listaProducto;
 }

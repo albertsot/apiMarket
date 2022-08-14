@@ -1,8 +1,6 @@
 package com.soto.marketspring.persistence.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "compras_productos")
@@ -14,6 +12,13 @@ public class ComprasProducto {
     private Integer total;
     private Boolean estado;
 
+    @ManyToOne
+    @JoinColumn(name = "id_compra",insertable = false,updatable = false)
+    private Compra compras;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto",insertable = false,updatable = false)
+    private Producto productos;
     public ComprasProductoPK getComprasProductoPK() {
         return comprasProductoPK;
     }

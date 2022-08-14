@@ -3,6 +3,7 @@ package com.soto.marketspring.persistence.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -13,10 +14,14 @@ public class Compra {
     @Column(name = "id_compra")
     private Integer compraId;
 
-    @Column(name = "id_cliente")
+    @ManyToOne
+    @JoinColumn(name = "id_cliente",insertable = false,updatable = false)
     private Cliente clienteId;
 
-    @Temporal(TemporalType.DATE)
+    @OneToMany(mappedBy = "compras")
+    private List<ComprasProducto> Productos;
+
+
     private LocalDateTime fecha;
 
     @Column(name = "medio_pago")

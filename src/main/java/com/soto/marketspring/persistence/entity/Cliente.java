@@ -1,18 +1,22 @@
 package com.soto.marketspring.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer clienteId;
     private String nombre;
     private String apellidos;
     private String celular;
     private String direccion;
 
+    @OneToMany(mappedBy = "clienteId")
+    private List<Compra> listaCompras;
     @Column(name = "correo_electronico")
     private String correo;
 
