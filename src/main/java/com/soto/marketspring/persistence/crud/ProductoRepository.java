@@ -4,6 +4,7 @@ import com.soto.marketspring.domain.Product;
 import com.soto.marketspring.domain.repository.ProductRepository;
 import com.soto.marketspring.persistence.entity.Producto;
 import com.soto.marketspring.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,10 @@ import java.util.Optional;
 public class ProductoRepository implements ProductRepository {
     //ProductoRepository enfocado al DOMINIO Y NO A UNA TABLA PUNTUAL,
     //SE EVITA QUE LA BD SE ACOPLE A UNA BD PUNTUAL, USANDO MAPSTRUCT
+
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
+    @Autowired
     private ProductMapper productMapper;
     @Override
     public List<Product> getAll(){
