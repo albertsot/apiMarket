@@ -14,9 +14,12 @@ public class Producto {
     @Column(name = "nombre")
     private String nombreProducto;
 
+    @Column(name = "id_categoria")
+    private Integer idCategoria;
+
     @ManyToOne
     @JoinColumn(name = "id_categoria",insertable = false,updatable = false)
-    private Categoria categoriaId;
+    private Categoria categoria;
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
@@ -29,6 +32,7 @@ public class Producto {
 
     private Boolean estado;
 
+    //seteo
     public Integer getIdProducto() {
         return idProducto;
     }
@@ -46,11 +50,11 @@ public class Producto {
     }
 
     public Categoria getCategoriaId() {
-        return categoriaId;
+        return categoria;
     }
 
     public void setCategoriaId(Categoria categoriaId) {
-        this.categoriaId = categoriaId;
+        this.categoria = categoria;
     }
 
     public String getCodigoBarras() {
@@ -83,5 +87,21 @@ public class Producto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

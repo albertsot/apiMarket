@@ -14,6 +14,38 @@ public class Categoria {
     private String  descripcion;
     private Boolean estado;
 
-    @OneToMany(mappedBy = "categoriaId")
+    @OneToMany(mappedBy = "categoria")
     private List<Producto> listaProducto;
+
+    public Integer getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<Producto> getListaProducto() {
+        return listaProducto;
+    }
+
+    public void setListaProducto(List<Producto> listaProducto) {
+        this.listaProducto = listaProducto;
+    }
 }
