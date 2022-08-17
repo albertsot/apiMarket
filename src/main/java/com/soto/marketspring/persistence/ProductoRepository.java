@@ -1,7 +1,8 @@
-package com.soto.marketspring.persistence.crud;
+package com.soto.marketspring.persistence;
 
 import com.soto.marketspring.domain.Product;
 import com.soto.marketspring.domain.repository.ProductRepository;
+import com.soto.marketspring.persistence.crud.ProductoCrudRepository;
 import com.soto.marketspring.persistence.entity.Producto;
 import com.soto.marketspring.persistence.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productos=productoCrudRepository.findByIdCategoriaOrderByNombreProductoAsc(categoryId);
+        List<Producto> productos=productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
         return Optional.of(productMapper.toProducts(productos));
     }
 

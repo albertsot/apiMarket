@@ -11,12 +11,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     public List<Product> getAll(){
         return productRepository.getAll();
     }
-    Optional<List<Product>> getByCategory(int categoryId){
+    public Optional<List<Product>> getByCategory(int categoryId){
         return productRepository.getByCategory(categoryId);
     }
     public Optional<Product> getProduct(int productId){

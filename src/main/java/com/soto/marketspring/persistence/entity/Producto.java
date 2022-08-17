@@ -3,16 +3,16 @@ package com.soto.marketspring.persistence.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "produtos")
+@Table(name = "productos")
 public class Producto {
 
-    @Column(name = "id_producto")
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto")
     private Integer idProducto;
 
-    @Column(name = "nombre")
-    private String nombreProducto;
+    private String nombre;
 
     @Column(name = "id_categoria")
     private Integer idCategoria;
@@ -41,12 +41,12 @@ public class Producto {
         this.idProducto = idProducto;
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setNombre(String nombreProducto) {
+        this.nombre = nombreProducto;
     }
 
     public Categoria getCategoriaId() {
