@@ -14,7 +14,7 @@ public class Cliente {
     private String celular;
     private String direccion;
 
-    @OneToMany(mappedBy = "clienteId")
+    @OneToMany(mappedBy = "cliente")
     private List<Compra> listaCompras;
     @Column(name = "correo_electronico")
     private String correo;
